@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheets" href="css/style.css" />
+    <title>Sketch</title>
+  </head>
+  <body>
+    <form
+      action="/"
+      method="post"
+      class="mt-20 text-center"
+      enctype="multipart/form-data"
+    >
+      <div>
+        <input type="file" name="file_upload" id="file_upload" />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Upload file"
+          name="file_name"
+          id="file_name"
+        />
+      </div>
+      <div>
+        <button type="submit">Convert</button>
+      </div>
+    </form>
+    <div>
+      <img src="{{ sketch }}" width="300" />
+      <img src="{{ original }}" width="300" />
+    </div>
+  </body>
+  <script type="text/javascript">
+    document.getElementById("file_upload").onchange = function () {
+      document.getElementById("file_name").value = this.value.slice(12, 100);
+    };
+  </script>
+</html>
