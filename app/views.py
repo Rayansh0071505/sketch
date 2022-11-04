@@ -23,7 +23,7 @@ def index():
         
         uploaded_image = cv2.imread(os.path.join(app.config['INITIAL_FILE_UPLOADS'], 'image.jpg'))
 
-        cv2.imshow('carss', uploaded_image)
+        cv2.imshow('image', uploaded_image)
 
         # get image height and width
         height, width, channels = uploaded_image.shape
@@ -31,7 +31,7 @@ def index():
         img_gray = cv2.cvtColor(uploaded_image, cv2.COLOR_RGB2GRAY)
         img_blur = cv2.GaussianBlur(img_gray, (21, 21), 0, 0)
         img_blend = cv2.divide(img_gray, img_blur, scale=256)
-        cv2.imshow('cars Pencil Sketch', img_blend)
+        cv2.imshow('Pencil Sketch', img_blend)
 
         # save image using opencv
         cv2.imwrite(os.path.join(app.config['GENERATED_FILE'], 'image_diff.jpg'), img_blend)
